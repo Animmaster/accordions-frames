@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.spotlight {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  background-color: #0f0f0f;
+  overflow: hidden;
+}
+
+.spotlight-track {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 1400px;
+  transform: translate(-50%, -50%);
+}
+
+.spotlight-panels {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.spotlight-panel {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  will-change: left, width;
+}
+
+.spotlight-panel img {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+.spotlight-focus-indicator {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border: 3px solid #fff;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  will-change: left, width;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.spotlight-focus-indicator::before,
+.spotlight-focus-indicator::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  background: #fff;
+}
+
+.spotlight-focus-indicator::before {
+  bottom: 100%;
+  height: 100svh;
+}
+
+.spotlight-focus-indicator::after {
+  top: 100%;
+  height: 100svh;
+}
+
+@media (max-width: 1000px) {
+  .spotlight-panels {
+    height: 260px;
+  }
+
+  .spotlight-panel img {
+    width: 200px;
+  }
+}
